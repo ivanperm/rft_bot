@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Цифровые помощники по формуле RTF</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<h1>Цифровые помощники по формуле RTF</h1>
+
+<div class="container">
+
+  <div class="sidebar">
+
+    <select id="role">
+      <option>Бот 1. Развлекательный</option>
+      <option>Бот 2. Учитель</option>
+      <option>Бот 3. Задающий вопросы</option>
+    </select>
+
+    <div id="inputs"></div>
+
+    <button onclick="clearChat()">Очистить чат</button>
+
+    <p class="label">
+      Сейчас ИИ работает с промптом, который вы видите ниже.
+      Вы можете скопировать его и использовать в любой генеративной нейросети.
+    </p>
+
+    <textarea id="prompt" readonly></textarea>
+
+  </div>
+
+  <div class="chat">
+
+    <div id="messages"></div>
+
+    <input id="input" placeholder="Введите сообщение..." />
+    <button onclick="send()">Отправить</button>
+
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
