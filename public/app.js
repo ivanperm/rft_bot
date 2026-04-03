@@ -102,8 +102,14 @@ function resetChat() {
 
 function addMessage(role, text) {
   const div = document.createElement("div");
-  div.className = "message";
-  div.innerHTML = `<strong>${escapeHtml(role)}:</strong> ${escapeHtml(text)}`;
+
+  let className = "assistant";
+  if (role === "Вы") className = "user";
+  if (role === "Система") className = "system";
+
+  div.className = `message ${className}`;
+  div.innerHTML = `<strong>${escapeHtml(role)}</strong>${escapeHtml(text)}`;
+
   messagesDiv.appendChild(div);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
