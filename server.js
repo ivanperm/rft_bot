@@ -51,14 +51,19 @@ app.post("/chat", async (req, res) => {
       return res.status(400).json({ error: "messages должны быть массивом." });
     }
 
-    const response = await client.responses.create({
-      model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
-      instructions: systemPrompt,
-      input: messages.map((m) => ({
-        role: m.role,
-        content: [{ type: "input_text", text: m.content }]
-      }))
-    });
+const response = await client.responses.create({
+  model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
+  instructions: systemPrompt,
+  input: messages.map((m) => ({
+    role: m.role,
+    content: [
+      {
+        type: m.role === "assistant" ? "output_text" : "input_text",
+        text: m.content
+      }
+    ]
+  }))
+});
 
     const reply = extractText(response);
 
