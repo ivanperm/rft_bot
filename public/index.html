@@ -2,47 +2,50 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Цифровые помощники по формуле RTF</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="page">
+    <h1>Цифровые помощники по формуле RTF</h1>
 
-<h1>Цифровые помощники по формуле RTF</h1>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div>
+            <label for="role">Роль</label>
+            <select id="role">
+              <option>Бот 1. Развлекательный</option>
+              <option>Бот 2. Учитель</option>
+              <option>Бот 3. Задающий вопросы</option>
+            </select>
+          </div>
 
-<div class="container">
+          <div id="inputs"></div>
 
-  <div class="sidebar">
+          <button class="clear-btn" onclick="clearChat()">Очистить чат</button>
+        </div>
 
-    <select id="role">
-      <option>Бот 1. Развлекательный</option>
-      <option>Бот 2. Учитель</option>
-      <option>Бот 3. Задающий вопросы</option>
-    </select>
+        <div class="prompt-note">
+          Сейчас ИИ работает с промптом, который вы видите ниже.
+          Вы можете скопировать его и использовать в любой генеративной нейросети.
+        </div>
 
-    <div id="inputs"></div>
+        <textarea id="prompt" readonly></textarea>
+      </aside>
 
-    <button onclick="clearChat()">Очистить чат</button>
+      <main class="chat">
+        <div id="messages"></div>
 
-    <p class="label">
-      Сейчас ИИ работает с промптом, который вы видите ниже.
-      Вы можете скопировать его и использовать в любой генеративной нейросети.
-    </p>
-
-    <textarea id="prompt" readonly></textarea>
-
+        <div class="chat-input">
+          <input id="input" placeholder="Введите сообщение..." />
+          <button class="send-btn" onclick="send()">Отправить</button>
+        </div>
+      </main>
+    </div>
   </div>
 
-  <div class="chat">
-
-    <div id="messages"></div>
-
-    <input id="input" placeholder="Введите сообщение..." />
-    <button onclick="send()">Отправить</button>
-
-  </div>
-
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
